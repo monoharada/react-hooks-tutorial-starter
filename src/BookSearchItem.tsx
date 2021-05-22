@@ -2,15 +2,15 @@ import React from 'react'
 import { BookDescription } from './BookDescription';
 
 type BookSearchItemProps = {
-  desription: BookDescription
+  description: BookDescription
   onBookAdd: (book: BookDescription) => void
 }
 
 
 const BookSearchItem = (props: BookSearchItemProps) => {
-  const { title, authors, thumbnail } = props.desription
+  const { title, authors, thumbnail } = props.description
   const handleAddBookClick = () => {
-    props.onBookAdd(props.desription)
+    props.onBookAdd(props.description)
   }
   return (
     <div className="book-search-item">

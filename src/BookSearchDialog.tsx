@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BookDescription } from './BookDescription';
-import { BookSearchItem } from './BookSearchItem';
+import BookSearchItem from './BookSearchItem';
 
 type BookSearchDialogProps = {
   maxResult: number
@@ -43,7 +43,7 @@ const BookSearchDialog = (props: BookSearchDialogProps) => {
   })
 
   return (
-    <div class="dialog">
+    <div className="dialog">
       <div className="operation">
         <div className="condition">
           <input
