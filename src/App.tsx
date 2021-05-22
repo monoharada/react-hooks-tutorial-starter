@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BookToRead } from "./BookToRead";
 import BookRow from './BookRow'
 import Modal from 'react-modal'
 import BookSearchDialog from './BookSearchDialog'
 import { BookDescription } from './BookDescription'
+
+const APP_KEY = "react-hooks-tutorial-starter"
 
 Modal.setAppElement('#root')
 
@@ -84,6 +86,16 @@ const App = () => {
     setBooks(newBooks)
     setModaliOpen(false)
   }
+  useEffect(() => {
+    const storedBooks = localStorage.getItem(APP_KEY)
+    if (storedBooks) {
+      setBooks(JSON.parse(storedBooks))
+    }
+  }, [])
+  useEffect(() => {
+    localStorage.setItem(APP_KEY, JSON.stringify(books))
+  }, [books])
+
   return (
     <div className="App">
       <section className="nav">
